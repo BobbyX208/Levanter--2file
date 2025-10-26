@@ -1,21 +1,19 @@
 FROM node:20
 
-# Install required system packages
+# Install required system packages and yarn globally
 RUN apt-get update && apt-get install -y --no-install-recommends \
     ffmpeg imagemagick webp git curl && \
+    npm install -g yarn pm2 && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Set working directory
 WORKDIR /app
 
-# Copy only launcher files
+# Copy launcher code
 COPY . .
 
-# Install yarn globally (used by your script)
-RUN npm install -g yarn pm2
-
-# Expose port if needed (adjust if bot uses another)
+# Expose default port (optional)
 EXPOSE 3000
 
-# Start the launcher (it clones and runs the real bot)
+# Run launcher
 CMD ["node", "index.js"]
