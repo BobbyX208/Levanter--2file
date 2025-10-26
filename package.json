@@ -1,0 +1,14 @@
+{
+  "name": "saturo-tech",
+  "version": "4.0.4",
+  "description": "A dummy Node.js project for eggs that doesn't support automated package.json checks",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "saturo",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {}
+
+}
